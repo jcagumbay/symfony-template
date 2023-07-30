@@ -17,5 +17,6 @@
 
 ## Up and running
 
-1. Run `docker compose up -d`
-2. Load `localhost` and voilà !
+1. Run `composer install` inside `app`
+2. Run `docker compose up -d` from root directory
+3. Load `localhost` and voilà !
