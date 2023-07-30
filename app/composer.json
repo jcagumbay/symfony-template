@@ -1,5 +1,5 @@
 {
-    "type": "project",
+    "type": "Symfony6 installation",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "BillionDollarApp\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "BillionDollarApp\\Tests\\": "tests/"
         }
     },
     "replace": {

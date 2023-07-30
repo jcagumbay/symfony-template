@@ -1,5 +1,11 @@
-controllers:
+registration:
     resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+        path: ../src/Registration/Ui/Web/Controller/
+        namespace: BillionDollarApp\Registration\Ui\Web\Controller
+    type: attribute
+
+home:
+    resource:
+        path: ../src/Home/Ui/Web/Controller/
+        namespace: BillionDollarApp\Home\Ui\Web\Controller
     type: attribute
