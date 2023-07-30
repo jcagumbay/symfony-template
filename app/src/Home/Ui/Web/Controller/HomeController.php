@@ -12,6 +12,15 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function list(): Response
     {
-        return new Response('Hello world. This is your home page.');
+        $hue = random_int(0, 360);
+        $darkColor = static fn (float $alpha = 1) => "hsla($hue, 20%, 45%, $alpha)";
+        $lightColor = static fn (float $alpha = 1) => "hsla($hue, 20%, 95%, $alpha)";
+
+        return $this->render('home/home.html.twig', [
+            'hue' => $hue,
+            'darkColor' => $darkColor(),
+            'lightColor' => $lightColor(),
+            'registrationUrl' => $this->generateUrl('registration')
+        ]);
     }
 }
