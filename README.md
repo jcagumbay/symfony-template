@@ -1,5 +1,8 @@
 # Symfony: Framework Agnostic Application Template 
 
+An adaptation on framework agnostic application template into Symfony.
+
+
 ## Why?
 
 The purpose of this proposed template is for your application, specially your core domain, to be agnostic of what framework (or vanilla) you are currently using. I have three reasons for it:
