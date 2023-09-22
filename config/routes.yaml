@@ -1,0 +1,5 @@
+booking_controllers:
+    resource:
+        path: ../src/Booking/Ui/Symfony/Web/Controller/
+        namespace: CompanyName\Booking\Ui\Symfony\Web\Controller
+    type: attribute

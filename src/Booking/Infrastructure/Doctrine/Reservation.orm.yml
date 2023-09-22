@@ -1,0 +1,18 @@
+CompanyName\Booking\Domain\Reservation:
+  type: entity
+  repositoryClass: CompanyName\Booking\Domain\Repository\ReservationRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    reservationDate:
+      type: datetime
+      nullable: false
+    duration:
+      type: float
+      nullable: false
+    creationDate:
+      type: datetime
+      nullable: false

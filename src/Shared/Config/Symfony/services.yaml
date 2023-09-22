@@ -1,0 +1,12 @@
+# config/services.yaml
+services:
+    _instanceof:
+    # all services implementing the CommandHandlerInterface
+    # will be registered on the command.bus bus
+        CompanyName\Shared\Application\CommandInterface:
+            tags:
+                - { name: messenger.message_handler, bus: command.bus }
+
+        CompanyName\Shared\Application\QueryInterface:
+            tags:
+                - { name: messenger.message_handler, bus: query.bus }

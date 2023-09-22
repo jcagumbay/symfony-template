@@ -1,0 +1,26 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    CompanyName\Booking\Ui\Symfony\Web\Controller\:
+        resource: '../../Ui/Symfony/Web/Controller/*'
+        tags:
+            - name: controller.service_arguments
+
+    CompanyName\Booking\Infrastructure\Doctrine\Repository\:
+        resource: '../../Infrastructure/Doctrine/Repository/*'
+
+    CompanyName\Booking\Domain\Repository\ReservationRepository: '@CompanyName\Booking\Infrastructure\Doctrine\Repository\DoctrineReservationRepository'
+
+    CompanyName\Booking\Application\Command\MakeReservationHandler:
+        tags:
+            -
+                name: messenger.message_handler
+                handles: CompanyName\Booking\Application\Command\MakeReservation
+
+    CompanyName\Booking\Application\Query\GetReservationsHandler:
+        tags:
+            -
+                name: messenger.message_handler
+                handles: CompanyName\Booking\Application\Query\GetReservations

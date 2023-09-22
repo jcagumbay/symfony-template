@@ -1,0 +1,16 @@
+{# templates/layout.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservations</h1>
+    <p>Each page load creates a new reservation.</p>
+
+    <p><strong>Current reservations</strong></p>
+    <ul>
+        {% for reservation in reservationDates %}
+            <li>{{ reservation }}</li>
+        {% endfor %}
+    </ul>
+
+    {% block page_contents %}{% endblock %}
+{% endblock %}
