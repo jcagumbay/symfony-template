@@ -12,12 +12,12 @@ The purpose of this proposed template is for your application, specially your co
 
 1. Run `composer install`
 2. Run `docker compose up -d` from root directory
-3. Load `localhost` and voilà !
+3. Load `http://localhost` and voilà ! (or `http://localhost/reservation` to see database integration though CQRS)
 
 ## Explanation
 
 1. `src/Booking`. This is your `domain`. The goal is to navigate the `src` in terms of business terms instead of `Controller`, `Entity`, etc directories.
-2. `Application` directory. All your commands and queries live here. This is in accordance to Onion architecture. UI should only talk to Application.
+2. `Application` directory. All your commands and queries live here (CQRS implementation using Symfony's Messenger). This is in accordance to Onion architecture. UI should only talk to Application.
 3. `Domain` directory. Your business code lives here.
 4. `Infrastructure` directory. This contains your adapters, doctrine mappings, etc.
 5. `Config` directory. Your framework configuration lives here. `Symfony` sub directory is used to emphasize the specific configuration.
