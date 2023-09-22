@@ -1,22 +1,23 @@
-# Symfony 6 Skeleton Installation with Docker
+# Symfony: Framework Agnostic Application Template 
 
-## Prequisites (installations on host machine)
+## Why?
 
-1. Install composer https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos
-2. Install docker and compose https://docs.docker.com/compose/install/ 
-3. Install PHP8.1 on host machine (this is needed by symfony CLI)
+The purpose of this proposed template is for your application, specially your core domain, to be agnostic of what framework (or vanilla) you are currently using. I have three reasons for it:
 
-## Steps during trial and error
-
-1. Install Symfony CLI from https://symfony.com/download
-2. Add the Symfony bin path on `.bashrc` `export PATH="$HOME/.symfony5/bin:$PATH"`
-3. Create the bare directories and empty files, such as `docker` and `app`
-4. Run `symfony check:requirements` 
-5. If everything is green, run `symfony new app --version="6.1.*"`. The `app` refers to the directory where Symfony installation resides
-6. All other configurations are copied and modified based on https://dev.to/slns/symfony-6-with-docker-14i0
+1. **Portability**. If your team decides to change framework, there will be no need to touch core domain, specially your business logic. Your only concern is to implement adapters and framework specific plumbing.
+2. **Easy upgrade**. If your code is deeply embedded into framework's structure, such as directory, etc, it might be tricky to make sure that your business code are not affected by the new structure/standards when there is a need for upgrade.
+3. **Purity**. What I mean by this is that, your business code is free from framework boilerplate, such as annotations, etc. In Symfony, you can configure your entity with doctrine directly through annotations. I have nothing against it, but personally, I would like my aggregates and entities free from framework specific templates. Specially if the application is business logic heavy. 
 
 ## Up and running
 
-1. Run `composer install` inside `app`
+1. Run `composer install`
 2. Run `docker compose up -d` from root directory
 3. Load `localhost` and voilà !
+
+## Explanation
+
+1. `src/Booking`. This is your `domain`. The goal is to navigate the `src` in terms of business terms instead of `Controller`, `Entity`, etc directories.
+2. `Application` directory. All your commands and queries live here. This is in accordance to Onion architecture. UI should only talk to Application.
+3. `Domain` directory. Your business code lives here.
+4. `Infrastructure` directory. This contains your adapters, doctrine mappings, etc.
+5. `Config` directory. Your framework configuration lives here. `Symfony` sub directory is used to emphasize the specific configuration.
