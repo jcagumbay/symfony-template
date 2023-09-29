@@ -6,7 +6,6 @@ namespace CompanyName\Booking\Application\Query;
 
 use CompanyName\Booking\Domain\Repository\ReservationRepository;
 use CompanyName\Booking\Domain\Reservation;
-use DateTimeInterface;
 
 class GetReservationsHandler
 {
@@ -19,7 +18,7 @@ class GetReservationsHandler
         $reservations = $this->reservationRepository->all();
 
         return array_map(
-            fn(Reservation $reservation) => $reservation->getReservationDate()->format(DateTimeInterface::ATOM),
+            fn (Reservation $reservation) => $reservation->getReservationDate()->format(\DateTimeInterface::ATOM),
             $reservations
         );
     }

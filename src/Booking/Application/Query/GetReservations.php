@@ -8,5 +8,4 @@ use CompanyName\Shared\Application\QueryInterface;
 
 class GetReservations implements QueryInterface
 {
-
 }

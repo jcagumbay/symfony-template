@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping\ClassMetadata;
 
 class DoctrineReservationRepository extends EntityRepository implements ReservationRepository
 {
-
     public function __construct(EntityManagerInterface $em)
     {
         parent::__construct($em, new ClassMetadata(Reservation::class));

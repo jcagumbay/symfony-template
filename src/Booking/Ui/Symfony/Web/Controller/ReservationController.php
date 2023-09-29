@@ -25,7 +25,7 @@ class ReservationController extends AbstractController
             ->getResult();
 
         return $this->render('reservation/reservations.html.twig', [
-            'reservationDates' => $reservations
+            'reservationDates' => $reservations,
         ]);
     }
 }
